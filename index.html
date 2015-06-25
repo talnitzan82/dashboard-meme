@@ -33,7 +33,7 @@
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body class="skin-blue" ng-app="myApp" ng-controller="mainAppController">
+    <body class="skin-blue" ng-app="myApp" ng-controller="mainAppController" ng-init="init()">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
             <a href="index.html" class="logo">
@@ -419,8 +419,8 @@
                         <div class="col-lg-3 col-xs-6">
                             <!-- small box -->
                             <div class="small-box bg-aqua">
-                                <div class="inner" ng-controller="overallCtrl" ng-init="init()">
-                                    <h3 ng-bind="data.totalProfits | currency">
+                                <div class="inner">
+                                    <h3 ng-bind="data[0].totalProfitDesktop | currency">
 
                                     </h3>
                                     <p>
@@ -431,15 +431,15 @@
                                     <i class="ion ion-bag"></i>
                                 </div>
                                 <a href="#" class="small-box-footer">
-                                    Total Profit
+                                    Total Profit Desktop
                                 </a>
                             </div>
                         </div><!-- ./col -->
                         <div class="col-lg-3 col-xs-6">
                             <!-- small box -->
                             <div class="small-box bg-green">
-                                <div class="inner" ng-controller="profitsInLastHourCtrl" ng-init="init()">
-                                    <h3 ng-bind="data.campProfitsLastHour | currency"></h3>
+                                <div class="inner" >
+                                    <h3 ng-bind="data[0].totalProfitLastHourDesktop | currency">
                                     <p>
 
                                     </p>
@@ -448,7 +448,7 @@
                                     <i class="ion ion-stats-bars"></i>
                                 </div>
                                 <a href="#" class="small-box-footer">
-                                    Profit in the last hour
+                                    Total Profit Desktop Last hour
                                 </a>
                             </div>
                         </div><!-- ./col -->
@@ -457,7 +457,7 @@
                             <div class="small-box bg-yellow">
                                 <div class="inner">
                                     <h3>
-                                        <span ng-bind="data.costOneHour | currency"></span>
+                                        <span ng-bind="data[0].totalProfitMobile | currency"></span>
 
                                     </h3>
                                     <p>
@@ -468,7 +468,7 @@
                                     <i class="ion ion-person-add"></i>
                                 </div>
                                 <a href="#" class="small-box-footer">
-                                    cost in the last hour
+                                    Total Profit Mobile
                                 </a>
                             </div>
                         </div><!-- ./col -->
@@ -477,18 +477,18 @@
                             <div class="small-box bg-yellow">
                                 <div class="inner">
                                     <h3>
-                                        <span ng-bind="campProfits.totals.mostLoosingCampaign.profit | currency"></span>
+                                        <span ng-bind="data[0].totalProfitLastHourMobile | currency"></span>
 
                                     </h3>
                                     <p>
-                                        <span ng-bind="campProfits.totals.mostLoosingCampaign.campNumber"></span>
+
                                     </p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-person-add"></i>
                                 </div>
                                 <a href="#" class="small-box-footer">
-                                    Most Lossin Campaign
+                                    Total Profit Mobile Last hour
                                 </a>
                             </div>
                         </div><!-- ./col -->
